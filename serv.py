@@ -11,6 +11,18 @@ import json
 
 class UpHandler(RequestHandler):
     def get(self):
+        pass
+
+
+
+class NowHandler(RequestHandler):
+    def get(self):
+        pass
+
+
+
+class UrlHandler(RequestHandler):
+    def get(self):
         title = self.get_argument("title")
         q = urllib.parse.quote_plus(title)
         print(q)
@@ -23,19 +35,13 @@ class UpHandler(RequestHandler):
         self.write(json.dumps({"results": url}))
 
 
-
-
-
-class NowHandler(RequestHandler):
-    pass
-
-
 settings = dict(debug=True)
 
 app = Application(
     handlers=[
       (r'/upcoming', UpHandler),
       (r'/now_playing', NowHandler)
+      (r'/url', UrlHandler)
     ],
     **settings
 )
