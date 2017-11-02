@@ -7,6 +7,7 @@ from tornado.ioloop import IOLoop
 import requests
 import urllib.parse
 import json
+import os
 
 
 class UpHandler(RequestHandler):
@@ -48,5 +49,5 @@ app = Application(
 
 if __name__ == "__main__":
     server = HTTPServer(app)
-    server.listen(os.environ.get("PORT",options.port))
+    server.listen(os.environ.get("PORT",8000))
     IOLoop.current().start()
