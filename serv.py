@@ -40,7 +40,7 @@ settings = dict(debug=True)
 app = Application(
     handlers=[
       (r'/upcoming', UpHandler),
-      (r'/now_playing', NowHandler),
+      (r'/now_playing', NowHandler)
       (r'/url', UrlHandler)
     ],
     **settings
@@ -48,5 +48,5 @@ app = Application(
 
 if __name__ == "__main__":
     server = HTTPServer(app)
-    server.listen(8000)
+    server.listen(os.environ.get("PORT",options.port))
     IOLoop.current().start()
