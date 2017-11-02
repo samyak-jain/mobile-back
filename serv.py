@@ -31,9 +31,10 @@ class UrlHandler(RequestHandler):
         for j in newresp:
             if j.get("trailer") is not None:
                 url = j["trailer"][-1]["videoUrl"]
+                rel = j["release_date"]
                 break
 
-        self.write(json.dumps({"results": url}))
+        self.write(json.dumps({"results": [url,rel]}))
 
 
 settings = dict(debug=True)
