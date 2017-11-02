@@ -12,13 +12,15 @@ import os
 
 class UpHandler(RequestHandler):
     def get(self):
-        pass
+        resp = json.loads(requests.get("https://api.themoviedb.org/3/movie/upcoming?api_key=194f0c51faac275b70ae54dcd0116ce9").text)
+        self.write(json.dumps(resp))
 
 
 
 class NowHandler(RequestHandler):
     def get(self):
-        pass
+        resp = json.loads(requests.get("https://api.themoviedb.org/3/movie/now_playing?api_key=194f0c51faac275b70ae54dcd0116ce9").text)
+        self.write(json.dumps(resp))
 
 
 
