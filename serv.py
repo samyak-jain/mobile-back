@@ -11,7 +11,7 @@ import json
 
 class UpHandler(RequestHandler):
     def get(self):
-        title = self.get_argument("url")
+        title = self.get_argument("title")
         q = urllib.parse.quote_plus(title)
         print(q)
         newresp = json.loads(requests.get("http://www.theimdbapi.org/api/find/movie?title=" + q).text)
