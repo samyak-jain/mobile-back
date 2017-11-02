@@ -40,7 +40,7 @@ settings = dict(debug=True)
 app = Application(
     handlers=[
       (r'/upcoming', UpHandler),
-      (r'/now_playing', NowHandler)
+      (r'/now_playing', NowHandler),
       (r'/url', UrlHandler)
     ],
     **settings
